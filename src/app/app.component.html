@@ -1,35 +1,8 @@
-
-<input type="text" [(ngModel)]="title">
-{{title}}
-<div *ngIf="title==='nicolas'" >
-  Esto es verdadero "eeeee" 
-</div>
-
-<div [ngSwitch]="title" >
-  <p *ngSwitchCase="'ivan'">Soy Ivan</p>
-  <p *ngSwitchCase="'vinicius'"> Soy vinicius</p>
-  <p *ngSwitchCase="'benzema'"> Soy benzema</p>
-  <p *ngSwitchCase="'modric'"> Soy Modric</p>
-  <p *ngSwitchDefault=""> No hay coincidencia</p>
-</div>
+<router-outlet></router-outlet>
 
 
-<input [(ngModel)]="newItem" type="text" >
-<button type="button" (click)="addItem()">Agregar un elemento</button>
 
-<ul>
-  <li *ngIf="items.length==0">
-    La lista esta vacia
-  </li>
-  <li *ngFor=" let item of items; index as i">
-      Mi nombre es : {{item}} en la posicion {{i}}
-      <button type="button" (click)="deleteItem(i)">Elimar elemento</button>
-  </li>
-</ul>
 
-<div class=".product-grid ">
-  <app-product  *ngFor="let product of products" 
-  (productCard) ="clickProduct($event)" 
-  [product]="product">
-  </app-product>
-</div>
+
+
+

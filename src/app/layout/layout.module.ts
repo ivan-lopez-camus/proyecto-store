@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { LayoutComponent } from './layout.component';
 import { LayoutRoutingModule } from './layout-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,7 +15,8 @@ import { LayoutRoutingModule } from './layout-routing.module';
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ]
 })
 export class LayoutModule { }

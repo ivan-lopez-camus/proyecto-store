@@ -1,5 +1,5 @@
 import { Component, Input,Output, EventEmitter } from '@angular/core';
-import {Product} from '../product.model';
+import {Product} from '../product/product.model';
 
 @Component({
   selector: 'app-product',
@@ -14,6 +14,6 @@ export class ProductComponent {
  today = new Date();
   addCart(){
     console.log('agregar carrito')
-    this.productCard.emit(this.product.id)
+   // this.productCard.emit(this.product.id)
   }
 }

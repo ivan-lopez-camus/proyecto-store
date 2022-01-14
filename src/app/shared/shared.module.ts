@@ -5,6 +5,7 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
 import { HighlightDirective } from './directives/highlight/highlight.directive';
 import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
   exports: [
     HeaderComponent, 

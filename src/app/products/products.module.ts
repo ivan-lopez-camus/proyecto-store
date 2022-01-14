@@ -8,6 +8,7 @@ import { LayoutModule } from '../layout/layout.module';
 import { ProductsRoutingModule } from './products-routing.module';
 import { CoreModule } from '../core/core.module';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../material/material.module';
 
 
 
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     SharedModule,
     ProductsRoutingModule,
-    CoreModule
+    CoreModule,
+    MaterialModule
   ]
 })
 export class ProductsModule { }

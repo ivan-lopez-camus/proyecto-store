@@ -12,6 +12,7 @@ import { ProductsModule } from './products/products.module';
 import { ContactModule } from './contact/contact.module';
 import { DemoModule } from './demo/demo.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PageNotFoundModule } from './page-not-found/page-not-found.module';
     ProductsModule,
     ContactModule,
     DemoModule,
-    PageNotFoundModule
+    PageNotFoundModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

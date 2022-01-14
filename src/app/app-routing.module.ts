@@ -3,7 +3,6 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { AdminGuard } from './admin.guard';
 
 import { LayoutComponent } from './layout/layout.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -41,7 +40,7 @@ const routes: Routes = [
   
   {
     path: '**',
-    component: PageNotFoundComponent
+    loadChildren: () => import('./page-not-found/page-not-found.module').then(m=>m.PageNotFoundModule)
   }
 ];
 

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/products/components/product/product.model';
 import { ProductsService } from '../../../core/services/products/products.service';
 import Swal from 'sweetalert2';
+import {MatDialog} from '@angular/material/dialog';
+import { ProductEditComponent } from '../product-edit/product-edit.component';
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -13,8 +15,9 @@ export class ProductListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'title','price','description','actions'];
   
   constructor(
-    private productsService: ProductsService
-  ) { }
+    private productsService: ProductsService,
+    private diaLog : MatDialog
+    ) { }
 
   ngOnInit(): void {
     this.fetchProducts();
@@ -70,6 +73,13 @@ export class ProductListComponent implements OnInit {
     
   }
 
+  editProduct(productId:string){
+    this.diaLog.open(ProductEditComponent ,{
+      width: '40%',
+      height: '50%',
+      minHeight:'50%',
+      data: productId
+    });
+  }
 
-  
 }

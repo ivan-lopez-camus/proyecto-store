@@ -16,6 +16,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -36,7 +37,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatSortModule,
     MatSidenavModule,
     MatListModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule
    
   ],
   exports: [
@@ -55,7 +57,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatSortModule,
     MatSidenavModule,
     MatListModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule
    
   ]
 })

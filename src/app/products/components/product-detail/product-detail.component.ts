@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router'
 import { Product } from '../../../model/product.model';
-
+import { switchMap } from 'rxjs/operators';
 import {ProductsService} from '../../../core/services/products/products.service'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,25 +12,21 @@ import {ProductsService} from '../../../core/services/products/products.service'
 })
 export class ProductDetailComponent implements OnInit {
 
-  product : Product;
+  product$ : Observable<Product>;
   constructor(
     private route : ActivatedRoute,
     private productService: ProductsService
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params:Params) =>{
-      const id = params.id;
-      this.fetchProduct(id);
-    })
+    this.product$ = this.route.params
+    .pipe(
+      switchMap((params:Params)=>{
+        return this.productService.getProduct(params.id)
+      })
+    );
   }
 
-  fetchProduct(id:string){
-    this.productService.getProduct(id)
-    .subscribe(product =>{
-      this.product = product
-    })
-  }
   newProduct(){
     const newProduct: Product = {
       id: '20',
@@ -38,7 +35,7 @@ export class ProductDetailComponent implements OnInit {
       price:3000,
       description: 'nuevo producto'
     };
-    
+
     this.productService.createProduct(newProduct)
     .subscribe(product =>{
       console.log(product)
@@ -53,14 +50,14 @@ export class ProductDetailComponent implements OnInit {
       price:12000,
       description: 'producto limitado'
     };
-    
+
     this.productService.updateProduct('20',updateProduct)
     .subscribe(product =>{
       console.log(product)
     })
   }
   deleteProduct(){
-    
+
     this.productService.deleteProduct('20')
     .subscribe(rpt =>{
       console.log(rpt)
